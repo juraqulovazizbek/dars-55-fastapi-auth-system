@@ -1,4 +1,5 @@
 from typing import Annotated
+from datetime import datetime
 
 from fastapi.routing import APIRouter
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
@@ -21,7 +22,10 @@ def get(
     existing_token = db.query(AuthToken).filter(AuthToken.token == token.credentials).first()
     if not existing_token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid token.')
-    
+
+    if existing_token.expires_date < datetime.now():
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Invalid token.')
+
     user = existing_token.user
 
     # if user.role != 'admin':
