@@ -5,7 +5,7 @@ from app.db.engine import engine
 SessionLocal = sessionmaker(bind=engine)
 
 
-def get_db():
+def get_session():
     db = SessionLocal()
     return db
 
@@ -13,4 +13,3 @@ def get_db():
     #     yield db
     # except:
     #     db.close()
-    
