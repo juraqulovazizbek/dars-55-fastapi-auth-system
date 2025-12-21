@@ -54,9 +54,7 @@ def login(
     token = AuthToken(
         token=generate_token(),
         expires_date=datetime.now() + timedelta(days=7),
-        user_id=user.user_id
-    )
-
+        user_id=user.user_id)
     db.add(token)
     db.commit()
     db.refresh(token)

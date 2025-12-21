@@ -10,3 +10,5 @@ app.include_router(users.router)
 app.include_router(auth.router)
 
 Base.metadata.create_all(engine)
+
+# ./.venv/Scripts/uvicorn app.main:app --reload

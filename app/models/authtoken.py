@@ -5,8 +5,7 @@ from sqlalchemy import (
     Integer,
     String,
     ForeignKey,
-    DateTime
-)
+    DateTime)
 from sqlalchemy.orm import relationship
 
 from app.db.base import Base

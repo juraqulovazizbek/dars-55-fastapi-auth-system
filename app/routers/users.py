@@ -29,6 +29,6 @@ def get(
     user = existing_token.user
 
     # if user.role != 'admin':
-    #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail='You are not User.')
+    #    raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail='You are not User.')
 
     return user
